@@ -1,0 +1,87 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/krishna/KPC/rtos/gatt_client/build/bootloader/esp-idf/esptool_py && /home/krishna/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/krishna/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/krishna/KPC/rtos/gatt_client/build/bootloader/bootloader.bin
+Bootloader binary size 0x6860 bytes. 0x7a0 bytes (7%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/gattc_demo.c.obj
+[3/8] Linking C static library esp-idf/main/libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable gatt_client.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/krishna/KPC/rtos/gatt_client/build/gatt_client.bin
+[7/8] cd /home/krishna/KPC/rtos/gatt_client/build/esp-idf/esptool_py && /home/krishna/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/krishna/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/krishna/KPC/rtos/gatt_client/build/partition_table/partition-table.bin /home/krishna/KPC/rtos/gatt_client/build/gatt_client.bin
+gatt_client.bin binary size 0xc2bb0 bytes. Smallest app partition is 0x100000 bytes. 0x3d450 bytes (24%) free.
+[7/8] cd /home/krishna/esp/esp-idf/components/esptool_py && /home/krishna/.espressif/tools/cmake/3.24.0/bin/cmake -D IDF_PATH=/home/krishna/esp/esp-idf -D "SERIAL_TOOL=/home/krishna/.espressif/python_env/idf5.2_py3.10_env/bin/python;;/home/krishna/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/krishna/KPC/rtos/gatt_client/build -P /home/krishna/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyUSB1 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 gatt_client.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.0
+Serial port /dev/ttyUSB1
+Connecting.....
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: b0:a7:32:2b:8e:84
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000d2fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26720 bytes to 16358...
+Writing at 0x00001000... (100 %)
+Wrote 26720 bytes (16358 compressed) at 0x00001000 in 0.6 seconds (effective 381.7 kbit/s)...
+Hash of data verified.
+Compressed 797616 bytes to 456571...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001f3a3... (7 %)
+Writing at 0x0002c5df... (10 %)
+Writing at 0x000393ce... (14 %)
+Writing at 0x0003efa7... (17 %)
+Writing at 0x00044b07... (21 %)
+Writing at 0x0004a927... (25 %)
+Writing at 0x000505d9... (28 %)
+Writing at 0x00056194... (32 %)
+Writing at 0x0005bb9c... (35 %)
+Writing at 0x000616c7... (39 %)
+Writing at 0x000680f0... (42 %)
+Writing at 0x0006e250... (46 %)
+Writing at 0x00074817... (50 %)
+Writing at 0x0007a7c8... (53 %)
+Writing at 0x000805aa... (57 %)
+Writing at 0x00086590... (60 %)
+Writing at 0x0008c2e9... (64 %)
+Writing at 0x00091cea... (67 %)
+Writing at 0x00097a29... (71 %)
+Writing at 0x0009d840... (75 %)
+Writing at 0x000a3cf9... (78 %)
+Writing at 0x000a9a80... (82 %)
+Writing at 0x000b0997... (85 %)
+Writing at 0x000b9f19... (89 %)
+Writing at 0x000c1936... (92 %)
+Traceback (most recent call last):
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/__init__.py", line 1139, in _main
+    main()
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/__init__.py", line 923, in main
+    operation_func(esp, args)
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/cmds.py", line 598, in write_flash
+    esp.flash_defl_block(block, seq, timeout=timeout)
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 131, in inner
+    return func(*args, **kwargs)
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 1077, in flash_defl_block
+    self.check_command(
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 467, in check_command
+    val, data = self.command(op, data, chk, timeout=timeout)
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 436, in command
+    p = self.read()
+  File "/home/krishna/.espressif/python_env/idf5.2_py3.10_env/lib/python3.10/site-packages/esptool/loader.py", line 369, in read
+    return next(self._slip_reader)
+StopIteration
+
+A fatal error occurred: The chip stopped responding.
+FAILED: CMakeFiles/flash /home/krishna/KPC/rtos/gatt_client/build/CMakeFiles/flash 
+cd /home/krishna/esp/esp-idf/components/esptool_py && /home/krishna/.espressif/tools/cmake/3.24.0/bin/cmake -D IDF_PATH=/home/krishna/esp/esp-idf -D "SERIAL_TOOL=/home/krishna/.espressif/python_env/idf5.2_py3.10_env/bin/python;;/home/krishna/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/krishna/KPC/rtos/gatt_client/build -P /home/krishna/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+ninja: build stopped: subcommand failed.
